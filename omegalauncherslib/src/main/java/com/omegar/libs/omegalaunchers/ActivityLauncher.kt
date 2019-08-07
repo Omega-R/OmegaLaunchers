@@ -106,7 +106,9 @@ class ActivityLauncher(
         val list =
             listOf(*parentLaunchers.map { it.createIntent(context) }.toTypedArray(), createIntent(context))
 
-        return PendingIntent.getActivities(context, requestCode, *list.toTypedArray(), flags)
+        val intents = list.toTypedArray()
+
+        return PendingIntent.getActivities(context, requestCode, intents, flags)
     }
 
     fun getPendingIntentWithParentStack(
