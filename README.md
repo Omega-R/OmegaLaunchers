@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/Omega-R/OmegaBase.svg)](https://jitpack.io/#Omega-R/OmegaLaunchers)
+[![](https://jitpack.io/v/Omega-R/OmegaLaunchers.svg)](https://jitpack.io/#Omega-R/OmegaLaunchers)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 # OmegaLaunchers
 
