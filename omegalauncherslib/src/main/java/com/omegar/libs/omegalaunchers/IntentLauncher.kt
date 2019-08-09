@@ -4,12 +4,10 @@ import android.content.Context
 import android.content.Intent
 
 /**
- * Created by Anton Knyazev on 2019-07-08.
+ * Created by Anton Knyazev on 2019-08-09.
  */
-class IntentLauncher(private val intent: Intent) : Launcher {
+class IntentLauncher(private val intent: Intent) : BaseIntentLauncher() {
 
-    override fun launch(context: Context) {
-        context.startActivity(intent)
-    }
+    override fun getIntent(context: Context) = intent
 
 }

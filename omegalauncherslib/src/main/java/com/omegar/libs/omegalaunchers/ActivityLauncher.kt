@@ -1,16 +1,10 @@
 package com.omegar.libs.omegalaunchers
 
 import android.app.Activity
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.AndroidRuntimeException
-import androidx.core.app.TaskStackBuilder
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.omegar.libs.omegalaunchers.tools.BundlePair
 import com.omegar.libs.omegalaunchers.tools.bundleOf
 import com.omegar.libs.omegalaunchers.tools.equalsBundle
@@ -25,7 +19,7 @@ class ActivityLauncher(
     private val activityClass: Class<Activity>,
     private val bundle: Bundle? = null,
     private var flags: Int = 0
-) : Launcher, Parcelable {
+) : BaseIntentLauncher(), Parcelable {
 
     companion object {
 
@@ -40,7 +34,7 @@ class ActivityLauncher(
     constructor(activityClass: Class<Activity>, vararg extraParams: BundlePair, flags: Int = 0)
             : this(activityClass, bundleOf(*extraParams), flags)
 
-    private fun createIntent(context: Context): Intent {
+    override fun getIntent(context: Context): Intent {
         return Intent(context, activityClass).apply {
             if (bundle != null) {
                 putExtras(bundle)
@@ -55,83 +49,6 @@ class ActivityLauncher(
 
     fun removeFlags(flag: Int) = apply {
         flags = flags and (flag.inv())
-    }
-
-    override fun launch(context: Context) {
-        launch(context, null)
-    }
-
-    fun launch(context: Context, option: Bundle? = null) {
-        val intent = createIntent(context)
-        try {
-            context.compatStartActivity(intent, option)
-        } catch (exc: AndroidRuntimeException) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.compatStartActivity(intent, option)
-        }
-    }
-
-    fun launch(context: Context, vararg parentLaunchers: ActivityLauncher) {
-        launch(context, null, *parentLaunchers)
-    }
-
-    fun launch(context: Context, option: Bundle? = null, vararg parentLaunchers: ActivityLauncher) {
-        val list =
-            listOf(*parentLaunchers.map { it.createIntent(context) }.toTypedArray(), createIntent(context))
-
-        ContextCompat.startActivities(context, list.toTypedArray(), option)
-    }
-
-    private fun Context.compatStartActivity(intent: Intent, option: Bundle? = null) {
-        ContextCompat.startActivity(this, intent, option)
-    }
-
-    private fun Activity.compatStartActivityForResult(intent: Intent, requestCode: Int, option: Bundle? = null) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            startActivityForResult(intent, requestCode, option)
-        } else {
-            startActivityForResult(intent, requestCode)
-        }
-    }
-
-    fun getPendingIntent(
-        context: Context, requestCode: Int = 0,
-        flags: Int = PendingIntent.FLAG_UPDATE_CURRENT
-    ): PendingIntent {
-        return PendingIntent.getActivity(context, requestCode, createIntent(context), flags)
-    }
-
-    fun getPendingIntent(
-        context: Context,
-        requestCode: Int = 0,
-        flags: Int = PendingIntent.FLAG_UPDATE_CURRENT,
-        vararg parentLaunchers: ActivityLauncher
-
-    ): PendingIntent {
-        val list =
-            listOf(*parentLaunchers.map { it.createIntent(context) }.toTypedArray(), createIntent(context))
-
-        val intents = list.toTypedArray()
-
-        return PendingIntent.getActivities(context, requestCode, intents, flags)
-    }
-
-    fun getPendingIntentWithParentStack(
-        context: Context,
-        requestCode: Int = 0,
-        flags: Int = PendingIntent.FLAG_UPDATE_CURRENT
-    ): PendingIntent {
-        return TaskStackBuilder.create(context)
-            .addNextIntentWithParentStack(createIntent(context))
-            .getPendingIntent(requestCode, flags)!!
-    }
-
-    fun launchForResult(activity: Activity, requestCode: Int, option: Bundle? = null) {
-        activity.compatStartActivityForResult(createIntent(activity), requestCode, option)
-    }
-
-    fun launchForResult(fragment: Fragment, requestCode: Int, option: Bundle? = null) {
-        fragment.startActivityForResult(createIntent(fragment.context!!), requestCode, option)
     }
 
     fun isOurActivity(activity: Activity): Boolean {
