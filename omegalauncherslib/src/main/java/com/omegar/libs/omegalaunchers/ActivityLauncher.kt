@@ -36,10 +36,8 @@ class ActivityLauncher(
 
     override fun getIntent(context: Context): Intent {
         return Intent(context, activityClass).apply {
-            if (bundle != null) {
-                putExtras(bundle)
-            }
-            flags = this@ActivityLauncher.flags
+            bundle?.let { putExtras(it) }
+            addFlags(this@ActivityLauncher.flags)
         }
     }
 
