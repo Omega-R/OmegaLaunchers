@@ -51,6 +51,10 @@ class ActivityLauncher(
         flags = flags and (flag.inv())
     }
 
+    fun setLaunchMode(mode: LaunchMode) = apply {
+        flags = mode.flags
+    }
+
     fun isOurActivity(activity: Activity): Boolean {
         return activityClass.isInstance(activity)
                 && activity.intent.extras.equalsBundle(bundle)
@@ -85,6 +89,12 @@ class ActivityLauncher(
                 .launch(context, option)
         }
 
+    }
+
+    enum class LaunchMode(val flags: Int) {
+        SINGLE_TASK(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK),
+        SINGLE_TOP(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP),
+        STANDART(0)
     }
 
 }
