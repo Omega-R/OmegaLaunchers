@@ -20,7 +20,7 @@ import kotlinx.android.parcel.Parcelize
 class FragmentLauncher(
     private val fragmentClass: Class<Fragment>,
     private val bundle: Bundle? = null
-) : Launcher, Parcelable {
+) : Launcher {
 
     constructor(fragmentClass: Class<Fragment>, vararg extraParams: BundlePair)
             : this(fragmentClass, bundleOf(*extraParams))

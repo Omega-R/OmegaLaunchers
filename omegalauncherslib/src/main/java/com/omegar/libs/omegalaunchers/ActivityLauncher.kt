@@ -16,10 +16,10 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 class ActivityLauncher(
-    private val activityClass: Class<Activity>,
+    private val activityClass: Class<out Activity>,
     private val bundle: Bundle? = null,
     private var flags: Int = 0
-) : BaseIntentLauncher(), Parcelable {
+) : BaseIntentLauncher() {
 
     companion object {
 
@@ -31,7 +31,7 @@ class ActivityLauncher(
 
     }
 
-    constructor(activityClass: Class<Activity>, vararg extraParams: BundlePair, flags: Int = 0)
+    constructor(activityClass: Class<out Activity>, vararg extraParams: BundlePair, flags: Int = 0)
             : this(activityClass, bundleOf(*extraParams), flags)
 
     override fun getIntent(context: Context): Intent {
@@ -99,12 +99,12 @@ inline fun <reified T> T.createActivityLauncher(
     flags: Int = 0
 ): ActivityLauncher {
     val declaringClass = T::class.java.declaringClass
-    return ActivityLauncher(declaringClass as Class<Activity>, *extra, flags = flags)
+    return ActivityLauncher(declaringClass as Class<out Activity>, *extra, flags = flags)
 }
 
 
 @Suppress("UNCHECKED_CAST")
 inline fun <reified T> T.createActivityLauncher(flags: Int = 0): ActivityLauncher {
     val declaringClass = T::class.java.declaringClass
-    return ActivityLauncher(declaringClass as Class<Activity>, flags = flags)
+    return ActivityLauncher(declaringClass as Class<out Activity>, flags = flags)
 }

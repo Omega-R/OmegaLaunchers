@@ -19,8 +19,10 @@ import java.lang.IllegalArgumentException
  * Created by Anton Knyazev on 30.04.19.
  */
 @Parcelize
-class DialogFragmentLauncher(private val fragmentClass: Class<DialogFragment>, private val bundle: Bundle? = null) :
-    Launcher, Parcelable {
+class DialogFragmentLauncher(
+    private val fragmentClass: Class<DialogFragment>,
+    private val bundle: Bundle? = null
+) : Launcher {
 
     constructor(fragmentClass: Class<DialogFragment>, vararg extraParams: BundlePair)
             : this(fragmentClass, bundleOf(*extraParams))
@@ -43,7 +45,12 @@ class DialogFragmentLauncher(private val fragmentClass: Class<DialogFragment>, p
         return fragmentClass.isInstance(fragment) && fragment.arguments.equalsBundle(bundle)
     }
 
-    fun launch(transaction: FragmentTransaction, tag: String? = null, targetFragment: Fragment? = null, requestCode: Int? = null) {
+    fun launch(
+        transaction: FragmentTransaction,
+        tag: String? = null,
+        targetFragment: Fragment? = null,
+        requestCode: Int? = null
+    ) {
         createDialogFragment().apply {
             if (targetFragment != null || requestCode != null) {
                 setTargetFragment(targetFragment, requestCode ?: 0)
@@ -52,7 +59,12 @@ class DialogFragmentLauncher(private val fragmentClass: Class<DialogFragment>, p
         }
     }
 
-    fun launch(fragmentManager: FragmentManager, tag: String? = null, targetFragment: Fragment? = null, requestCode: Int? = null) {
+    fun launch(
+        fragmentManager: FragmentManager,
+        tag: String? = null,
+        targetFragment: Fragment? = null,
+        requestCode: Int? = null
+    ) {
         createDialogFragment().apply {
             if (targetFragment != null || requestCode != null) {
                 setTargetFragment(targetFragment, requestCode ?: 0)
@@ -83,12 +95,22 @@ class DialogFragmentLauncher(private val fragmentClass: Class<DialogFragment>, p
 
         fun createLauncher(): DialogFragmentLauncher
 
-        fun launch(transaction: FragmentTransaction, tag: String? = null, targetFragment: Fragment? = null, requestCode: Int? = null) {
+        fun launch(
+            transaction: FragmentTransaction,
+            tag: String? = null,
+            targetFragment: Fragment? = null,
+            requestCode: Int? = null
+        ) {
             return createLauncher()
                 .launch(transaction, tag, targetFragment, requestCode)
         }
 
-        fun launch(manager: FragmentManager, tag: String? = null, targetFragment: Fragment? = null, requestCode: Int? = null) {
+        fun launch(
+            manager: FragmentManager,
+            tag: String? = null,
+            targetFragment: Fragment? = null,
+            requestCode: Int? = null
+        ) {
             return createLauncher().launch(manager, tag, targetFragment, requestCode)
         }
 

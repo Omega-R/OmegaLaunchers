@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OmegaLaunchers.iml" filepath="$PROJECT_DIR$/OmegaLaunchers.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/omegalauncherslib/omegalauncherslib.iml" filepath="$PROJECT_DIR$/omegalauncherslib/omegalauncherslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OmegaLaunchers.iml" filepath="$PROJECT_DIR$/.idea/modules/OmegaLaunchers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.iml" filepath="$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.iml" />
     </modules>
   </component>
 </project>

@@ -8,16 +8,15 @@ import android.os.Build
 import android.os.Bundle
 import com.omegar.libs.omegalaunchers.tools.BundlePair
 import com.omegar.libs.omegalaunchers.tools.bundleOf
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by Anton Knyazev on 2019-07-19.
  */
+@Parcelize
 class ServiceLauncher(
-
     private val serviceClass: Class<Service>,
-
     private val bundle: Bundle? = null
-
 ) : Launcher {
 
     constructor(serviceClass: Class<Service>, vararg extraParams: BundlePair)
