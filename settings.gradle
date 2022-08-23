@@ -1,1 +1,1 @@
-include ':app', ':omegalauncherslib'
+include ':app', ':omegalauncherslib', ':stub'

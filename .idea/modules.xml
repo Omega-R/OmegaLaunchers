@@ -4,7 +4,16 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/OmegaLaunchers.iml" filepath="$PROJECT_DIR$/.idea/modules/OmegaLaunchers.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/OmegaLaunchers.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.iml" filepath="$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/omegalauncherslib/OmegaLaunchers.omegalauncherslib.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.iml" filepath="$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.main.iml" filepath="$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.test.iml" filepath="$PROJECT_DIR$/.idea/modules/stub/OmegaLaunchers.stub.test.iml" />
     </modules>
   </component>
 </project>
