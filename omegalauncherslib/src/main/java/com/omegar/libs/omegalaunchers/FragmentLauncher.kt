@@ -18,7 +18,7 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 class FragmentLauncher(
-    private val fragmentClass: Class<Fragment>,
+    val fragmentClass: Class<Fragment>,
     private val bundle: Bundle? = null
 ) : Launcher {
 

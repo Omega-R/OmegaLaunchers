@@ -20,7 +20,7 @@ import java.lang.IllegalArgumentException
  */
 @Parcelize
 class DialogFragmentLauncher(
-    private val fragmentClass: Class<DialogFragment>,
+    val fragmentClass: Class<DialogFragment>,
     private val bundle: Bundle? = null
 ) : Launcher {
 
