@@ -14,7 +14,7 @@ import kotlinx.android.parcel.Parcelize
  * Created by Anton Knyazev on 2019-07-19.
  */
 @Parcelize
-class ServiceLauncher(
+open class ServiceLauncher(
     private val serviceClass: Class<Service>,
     private val bundle: Bundle? = null
 ) : Launcher {

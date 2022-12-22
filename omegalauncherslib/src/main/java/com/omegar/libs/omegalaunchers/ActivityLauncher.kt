@@ -15,7 +15,7 @@ import kotlinx.android.parcel.Parcelize
  * Created by Anton Knyazev on 06.04.2019.
  */
 @Parcelize
-class ActivityLauncher(
+open class ActivityLauncher(
     val activityClass: Class<out Activity>,
     private val bundle: Bundle? = null,
     private var flags: Int = 0

@@ -17,7 +17,7 @@ import kotlinx.android.parcel.Parcelize
  * Created by Anton Knyazev on 06.04.2019.
  */
 @Parcelize
-class FragmentLauncher(
+open class FragmentLauncher(
     val fragmentClass: Class<Fragment>,
     private val bundle: Bundle? = null
 ) : Launcher {

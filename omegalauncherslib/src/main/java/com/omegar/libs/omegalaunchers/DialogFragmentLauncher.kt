@@ -19,7 +19,7 @@ import java.lang.IllegalArgumentException
  * Created by Anton Knyazev on 30.04.19.
  */
 @Parcelize
-class DialogFragmentLauncher(
+open class DialogFragmentLauncher(
     val fragmentClass: Class<DialogFragment>,
     private val bundle: Bundle? = null
 ) : Launcher {
