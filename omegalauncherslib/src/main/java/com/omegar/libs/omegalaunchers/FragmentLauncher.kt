@@ -18,11 +18,11 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 open class FragmentLauncher(
-    protected val fragmentClass: Class<Fragment>,
+    protected val fragmentClass: Class<out Fragment>,
     private val bundle: Bundle? = null
 ) : Launcher {
 
-    constructor(fragmentClass: Class<Fragment>, vararg extraParams: BundlePair)
+    constructor(fragmentClass: Class<out Fragment>, vararg extraParams: BundlePair)
             : this(fragmentClass, bundleOf(*extraParams))
 
     override fun launch(context: Context) {
