@@ -43,7 +43,7 @@ infix fun String.put(value: Char) = BundlePair { it[this] = value }
 infix fun String.put(value: CharSequence) = BundlePair { it[this] = value }
 infix fun String.put(value: String) = BundlePair { it[this] = value }
 infix fun String.put(value: Bundle) = BundlePair { it[this] = value }
-infix fun String.put(value: Parcelable) = BundlePair { it[this] = value }
+infix fun String.put(value: Parcelable?) = BundlePair { it[this] = value }
 infix fun String.put(value: Serializable?) = BundlePair { it[this] = value }
 
 @RequiresApi(18)
@@ -82,7 +82,7 @@ operator fun Bundle.set(key: String, value: Char) = putChar(key, value)
 operator fun Bundle.set(key: String, value: CharSequence) = putCharSequence(key, value)
 operator fun Bundle.set(key: String, value: String) = putString(key, value)
 operator fun Bundle.set(key: String, value: Bundle) = putBundle(key, value)
-operator fun Bundle.set(key: String, value: Parcelable) = putParcelable(key, value)
+operator fun Bundle.set(key: String, value: Parcelable?) = putParcelable(key, value)
 operator fun Bundle.set(key: String, value: Serializable?) = putSerializable(key, value)
 
 @RequiresApi(18)
