@@ -18,7 +18,7 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 open class FragmentLauncher(
-    val fragmentClass: Class<Fragment>,
+    protected val fragmentClass: Class<Fragment>,
     private val bundle: Bundle? = null
 ) : Launcher {
 
@@ -33,7 +33,7 @@ open class FragmentLauncher(
         }
     }
 
-    fun createFragment(): Fragment {
+    protected open fun createFragment(): Fragment {
         val fragment = fragmentClass.newInstance()
         fragment.arguments = bundle
         return fragment

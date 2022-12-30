@@ -15,14 +15,14 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 open class ServiceLauncher(
-    private val serviceClass: Class<Service>,
+    protected val serviceClass: Class<Service>,
     private val bundle: Bundle? = null
 ) : Launcher {
 
     constructor(serviceClass: Class<Service>, vararg extraParams: BundlePair)
             : this(serviceClass, bundleOf(*extraParams))
 
-    private fun createIntent(context: Context): Intent {
+    protected open fun createIntent(context: Context): Intent {
         return Intent(context, serviceClass).apply {
             bundle?.let(::putExtras)
         }

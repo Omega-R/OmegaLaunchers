@@ -16,7 +16,7 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 open class ActivityLauncher(
-    val activityClass: Class<out Activity>,
+    protected val activityClass: Class<out Activity>,
     private val bundle: Bundle? = null,
     private var flags: Int = 0
 ) : BaseIntentLauncher() {
