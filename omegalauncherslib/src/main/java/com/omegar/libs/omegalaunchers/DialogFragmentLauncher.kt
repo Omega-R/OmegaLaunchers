@@ -21,7 +21,7 @@ import java.lang.IllegalArgumentException
 @Parcelize
 open class DialogFragmentLauncher(
     protected val fragmentClass: Class<out DialogFragment>,
-    private val bundle: Bundle? = null
+    protected val bundle: Bundle? = null
 ) : Launcher {
 
     constructor(fragmentClass: Class<out DialogFragment>, vararg extraParams: BundlePair)
